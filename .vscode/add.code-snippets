@@ -1,0 +1,14 @@
+{
+"add": {
+  "prefix": "add",
+  "body": [
+    "template <typename T> struct Edge {",
+    "  int id, v;",
+    "  T w;",
+    "  Edge(int _id, int _v, T _w = T()) : id(_id), v(_v), w(_w) {}",
+    "};",
+    "template <typename T> using Graph = vvc<Edge<T>>;"
+  ],
+  "description": "add"
+}
+}

@@ -1,0 +1,4 @@
+ColumnLimit: 120      # 每行最大字符数（超过则换行）。设为0禁用换行，但通常不推荐。
+BreakBeforeBraces: Custom # 大括号换行风格（可选）
+AllowShortFunctionsOnASingleLine: true # 允许短函数单行
+PenaltyBreakString: 1000 # 字符串换行惩罚值（值越大越避免换行）

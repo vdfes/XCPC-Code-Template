@@ -1,0 +1,16 @@
+{
+"RAND": {
+  "prefix": "RAND",
+  "body": [
+    "template <typename T> T rand_int(T l, T r) {",
+    "  static mt19937_64 gen_int(chrono::steady_clock::now().time_since_epoch().count());",
+    "  return uniform_int_distribution<T>(l, r)(gen_int);",
+    "}",
+    "template <typename T> T rand_real(T l, T r) {",
+    "  static mt19937_64 gen_real(chrono::steady_clock::now().time_since_epoch().count());",
+    "  return uniform_real_distribution<T>(l, r)(gen_real);",
+    "}"
+  ],
+  "description": "RAND"
+}
+}

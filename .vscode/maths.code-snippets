@@ -1,0 +1,36 @@
+{
+"maths": {
+  "prefix": "maths",
+  "body": [
+    "struct maths {",
+    "  static ll ceil(ll n, ll m) {",
+    "    if (n >= 0)",
+    "      return (n + m - 1) / m;",
+    "    else",
+    "      return n / m;",
+    "  }",
+    "  static ll floor(ll n, ll m) {",
+    "    if (n >= 0)",
+    "      return n / m;",
+    "    else",
+    "      return (n - m + 1) / m;",
+    "  }",
+    "  static ll sqrt(ll n) {",
+    "    ll s = std::sqrt(n);",
+    "    while (s * s > n)",
+    "      s--;",
+    "    while ((s + 1) * (s + 1) <= n)",
+    "      s++;",
+    "    return s;",
+    "  }",
+    "  static ll log(ll a, ll b) {",
+    "    ll t = 0, v = 1;",
+    "    while (v < b)",
+    "      v *= a, t++;",
+    "    return t;",
+    "  }",
+    "};"
+  ],
+  "description": "maths"
+}
+}

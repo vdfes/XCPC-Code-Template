@@ -1,0 +1,39 @@
+{
+"prime": {
+  "prefix": "prime",
+  "body": [
+    "struct Prime {",
+    "public:",
+    "  void init(int _n) {",
+    "    n = _n;",
+    "    minp.assign(n + 1, 0);",
+    "    F(i, 2, n) {",
+    "      if (!minp[i]) {",
+    "        minp[i] = i;",
+    "        primes.push_back(i);",
+    "      }",
+    "      for (const auto &p : primes) {",
+    "        if (i > n / p)",
+    "          break;",
+    "        minp[i * p] = p;",
+    "        if (p == minp[i])",
+    "          break;",
+    "      }",
+    "    }",
+    "  }",
+    "  bool isprime(int x) const { return minp[x] == x; }",
+    "  int getminp(int x) const {",
+    "    assert(x >= 2 && x <= n);",
+    "    return minp[x];",
+    "  }",
+    "  const vc<int> &getprimes() const { return primes; }",
+    "  int count() const { return primes.size(); }",
+    "",
+    "private:",
+    "  int n;",
+    "  vc<int> minp, primes;",
+    "} prime;"
+  ],
+  "description": "prime"
+}
+}

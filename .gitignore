@@ -1,0 +1,10 @@
+# 忽略所有文件和文件夹
+*
+
+# 但保留 .vscode 文件夹
+!.vscode/
+!.vscode/*
+!.gitignore
+!chk.cpp
+!start.cpp
+!.clang-format

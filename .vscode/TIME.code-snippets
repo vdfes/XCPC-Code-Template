@@ -1,0 +1,24 @@
+{
+"TIME": {
+  "prefix": "TIME",
+  "body": [
+    "struct Time {",
+    "public:",
+    "  void init() {",
+    "    limit_ms = 950;",
+    "    start = chrono::high_resolution_clock::now();",
+    "  }",
+    "  bool check() {",
+    "    auto now = chrono::high_resolution_clock::now();",
+    "    auto elapsed = chrono::duration_cast<chrono::milliseconds>(now - start).count();",
+    "    return elapsed > limit_ms;",
+    "  }",
+    "",
+    "private:",
+    "  chrono::high_resolution_clock::time_point start;",
+    "  int limit_ms;",
+    "} TC;"
+  ],
+  "description": "TIME"
+}
+}

@@ -1,0 +1,42 @@
+{
+"CartesianTree": {
+  "prefix": "CartesianTree",
+  "body": [
+    "template <typename T> struct CartesianTree {",
+    "public:",
+    "  int n, root;",
+    "  vc<T> val;",
+    "  vc<int> lson, rson, fa;",
+    "  vc<int> stk;",
+    "  CartesianTree() { clear(); }",
+    "  void clear() {",
+    "    n = 0;",
+    "    root = 0;",
+    "    val.clear(), lson.clear(), rson.clear(), fa.clear(), stk.clear();",
+    "    val.emplace_back(0), lson.emplace_back(0), rson.emplace_back(0), fa.emplace_back(0);",
+    "  }",
+    "  int insert(T v) {",
+    "    int u = ++n;",
+    "    val.emplace_back(v), lson.emplace_back(0), rson.emplace_back(0), fa.emplace_back(0);",
+    "    int last = 0;",
+    "    while (!stk.empty() && v > val[stk.back()]) {",
+    "      last = stk.back();",
+    "      stk.pop_back();",
+    "    }",
+    "    if (!stk.empty()) {",
+    "      fa[u] = stk.back();",
+    "      rson[stk.back()] = u;",
+    "    }",
+    "    if (last) {",
+    "      fa[last] = u;",
+    "      lson[u] = last;",
+    "    }",
+    "    stk.emplace_back(u);",
+    "    root = stk[0];",
+    "    return u;",
+    "  }",
+    "};"
+  ],
+  "description": "CartesianTree"
+}
+}

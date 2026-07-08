@@ -1,0 +1,33 @@
+{
+"SparseTable": {
+  "prefix": "SparseTable",
+  "body": [
+    "template <typename T> struct SparseTable {",
+    "  vvc<T> st;",
+    "  vc<int> lg;",
+    "  int n;",
+    "  function<T(T, T)> op;",
+    "  SparseTable() {}",
+    "  SparseTable(const vc<T> &a, int offset, function<T(T, T)> _op) : op(_op) {",
+    "    n = a.size() - offset;",
+    "    lg.resize(n + 1);",
+    "    lg[1] = 0;",
+    "    F(i, 2, n) lg[i] = lg[i >> 1] + 1;",
+    "    int LOG = lg[n] + 1;",
+    "    st.assign(LOG, vc<T>(n + 1));",
+    "    F(i, 1, n) st[0][i] = a[i - 1 + offset];",
+    "    F(j, 1, LOG - 1) {",
+    "      int len = 1 << j, half = 1 << (j - 1);",
+    "      F(i, 1, n - len + 1) st[j][i] = op(st[j - 1][i], st[j - 1][i + half]);",
+    "    }",
+    "  }",
+    "  T query(int l, int r) {",
+    "    int k = lg[r - l + 1];",
+    "    return op(st[k][l], st[k][r - (1 << k) + 1]);",
+    "  }",
+    "};",
+    "// SparseTable<int> st_min(a, 1, [](const auto &a, const auto &b) { return min(a, b); });"
+  ],
+  "description": "SparseTable"
+}
+}
