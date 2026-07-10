@@ -2,7 +2,7 @@
 "01trie": {
   "prefix": "01trie",
   "body": [
-    "template <int MAXSIZE = 2, int BASE = 0> struct Trie {",
+    "template <int MAXBIT = 62>  struct Trie {",
     "public:",
     "  Trie() {",
     "    nxt.resize(1);",
@@ -15,9 +15,9 @@
     "  }",
     "  void insert(ll s) {",
     "    int p = 0;",
-    "    DF(i, 62, 0) {",
+    "    DF(i, MAXBIT, 0) {",
     "      int c = s >> i & 1;",
-    "      assert(c >= 0 && c < MAXSIZE);",
+    "      assert(c >= 0 && c < 2);",
     "      if (!nxt[p][c]) {",
     "        nxt.push_back({});",
     "        nxt.back().fill(0);",
@@ -29,9 +29,9 @@
     "  ll querymax(ll s) {",
     "    int p = 0;",
     "    ll ans = 0;",
-    "    DF(i, 62, 0) {",
+    "    DF(i, MAXBIT, 0) {",
     "      int c = s >> i & 1;",
-    "      assert(c >= 0 && c < MAXSIZE);",
+    "      assert(c >= 0 && c < 2);",
     "      if (nxt[p][c ^ 1]) {",
     "        ans |= (1LL << i);",
     "        p = nxt[p][c ^ 1];",
@@ -43,7 +43,7 @@
     "  int size() const { return (int)nxt.size() - 1; }",
     "",
     "private:",
-    "  vc<array<int, MAXSIZE>> nxt;",
+    "  vc<array<int, 2>> nxt;",
     "};"
   ],
   "description": "01trie"
