@@ -1,0 +1,42 @@
+{
+"RollbackDSU": {
+  "prefix": "RollbackDSU",
+  "body": [
+    "struct RollbackDSU {",
+    "  vc<int> fa, siz;",
+    "  vc<tuple<int, int, int>> stk;",
+    "  RollbackDSU(int n) {",
+    "    fa.resize(n + 1), siz.assign(n + 1, 1);",
+    "    F(i, 1, n) fa[i] = i;",
+    "  }",
+    "  int find(int x) {",
+    "    while (fa[x] != x)",
+    "      x = fa[x];",
+    "    return x;",
+    "  }",
+    "  bool merge(int x, int y) {",
+    "    int fx = find(x), fy = find(y);",
+    "    if (fx == fy) {",
+    "      stk.emplace_back(-1, -1, -1);",
+    "      return 0;",
+    "    }",
+    "    if (siz[fx] < siz[fy])",
+    "      swap(fx, fy);",
+    "    stk.emplace_back(fx, fy, siz[fx]);",
+    "    fa[fy] = fx;",
+    "    siz[fx] += siz[fy];",
+    "    return 1;",
+    "  }",
+    "  void rollback() {",
+    "    auto [fx, fy, oldsiz] = stk.back();",
+    "    stk.pop_back();",
+    "    if (fx == -1)",
+    "      return;",
+    "    fa[fy] = fy;",
+    "    siz[fx] = oldsiz;",
+    "  }",
+    "};"
+  ],
+  "description": "RollbackDSU"
+}
+}
