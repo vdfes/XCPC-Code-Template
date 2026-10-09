@@ -1,0 +1,16 @@
+{
+"HashXor": {
+  "prefix": "HashXor",
+  "body": [
+    "ull mix64(ull x) {",
+    "  x ^= x >> 30;",
+    "  x *= 0xbf58476d1ce4e5b9ULL;",
+    "  x ^= x >> 27;",
+    "  x *= 0x94d049bb133111ebULL;",
+    "  x ^= x >> 31;",
+    "  return x;",
+    "}"
+  ],
+  "description": "HashXor"
+}
+}
