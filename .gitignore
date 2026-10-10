@@ -5,6 +5,5 @@
 !.vscode/
 !.vscode/*
 !.gitignore
-!chk.cpp
 !start.cpp
 !.clang-format
