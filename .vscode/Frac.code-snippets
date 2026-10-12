@@ -9,6 +9,8 @@
     "    if (den < 0)",
     "      num = -num, den = -den;",
     "    T g = __gcd(num, den);",
+    "    if (g < 0)",
+    "      g = -g;",
     "    if (g && g != 1)",
     "      num /= g, den /= g;",
     "    return *this;",
