@@ -70,10 +70,9 @@
     "  int size() const { return (int)nxt.size() - 1; }",
     "",
     "private:",
-    "  vector<array<int, MAXSIZE>> nxt;",
-    "  vector<int> cnt, end, root;",
-    "};",
-    ""
+    "  vc<array<int, MAXSIZE>> nxt;",
+    "  vc<int> cnt, end, root;",
+    "};"
   ],
   "description": "PstTrie"
 }

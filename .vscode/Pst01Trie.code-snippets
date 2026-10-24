@@ -61,10 +61,9 @@
     "  int size() const { return (int)tr.size() - 2; }",
     "",
     "private:",
-    "  vector<array<int, 2>> tr;",
-    "  vector<int> cnt, root;",
-    "};",
-    ""
+    "  vc<array<int, 2>> tr;",
+    "  vc<int> cnt, root;",
+    "};"
   ],
   "description": "Pst01Trie"
 }

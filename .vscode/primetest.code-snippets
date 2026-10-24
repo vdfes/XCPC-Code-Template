@@ -1,4 +1,5 @@
-{"primetest": {
+{
+"primetest": {
   "prefix": "primetest",
   "body": [
     "ull qpow64(ull a, ull b, ull mod) {",
@@ -45,4 +46,5 @@
     "}"
   ],
   "description": "primetest"
-}}
+}
+}

@@ -2,7 +2,7 @@
 "01trie": {
   "prefix": "01trie",
   "body": [
-    "template <int MAXBIT = 62>  struct Trie {",
+    "template <int MAXBIT = 62> struct Trie {",
     "public:",
     "  Trie() {",
     "    nxt.resize(1);",

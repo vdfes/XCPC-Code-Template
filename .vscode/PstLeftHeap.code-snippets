@@ -11,8 +11,8 @@
     "    Node() : ls(0), rs(0), dist(0), val(T()) {}",
     "    Node(T v) : ls(0), rs(0), dist(1), val(v) {}",
     "  };",
-    "  vector<Node> t;",
-    "  vector<int> root;",
+    "  vc<Node> t;",
+    "  vc<int> root;",
     "  bool cmp(T a, T b) {",
     "    return a > b; // 小根堆",
     "    // return a < b; // 大根堆",
@@ -70,8 +70,7 @@
     "  }",
     "  bool empty(int ver) { return root[ver] == 0; }",
     "  int vercount() const { return (int)root.size(); }",
-    "};",
-    ""
+    "};"
   ],
   "description": "PstLeftHeap"
 }

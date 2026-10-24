@@ -45,8 +45,7 @@
     "  ll s4 = B4.sum(x, y);",
     "  return (x + 1) * (y + 1) * s1 - (y + 1) * s2 - (x + 1) * s3 + s4;",
     "}",
-    "ll ask(int a, int b, int c, int d) { return presum(c, d) - presum(a - 1, d) - presum(c, b - 1) + presum(a - 1, b - 1); }",
-    ""
+    "ll ask(int a, int b, int c, int d) { return presum(c, d) - presum(a - 1, d) - presum(c, b - 1) + presum(a - 1, b - 1); }"
   ],
   "description": "Fenwick2D"
 }
